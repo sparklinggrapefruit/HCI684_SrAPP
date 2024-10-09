@@ -30,7 +30,7 @@ from openai.types.chat import (
 import os
 from openai import OpenAI
 
-client = openai.Client(api_key="sk-7_RymmLBu1cOZKzfeA3eXMHyKkn77FHA4nfo-wpbNnT3BlbkFJUNLg_g-yy7hF_c0lifzXALi4Db82uhZC56jg5S8lwA")
+client = openai.Client(api_key="secret")
 
 # Create a chat completion using the client
 response = client.chat.completions.create(
