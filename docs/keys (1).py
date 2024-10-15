@@ -1,0 +1,2 @@
+# https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key
+open_ai_api_key = "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" # replace this with your OpenAI API key
