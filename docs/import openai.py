@@ -1,47 +1,26 @@
-import openai
 
-from openai.types import Completion, CompletionChoice, CompletionUsage
-from openai.types import ChatModel
-
-from openai.types.chat import (
-    ChatCompletion,
-    ChatCompletionAssistantMessageParam,
-    ChatCompletionChunk,
-    ChatCompletionContentPartParam,
-    ChatCompletionContentPartImageParam,
-    ChatCompletionContentPartRefusalParam,
-    ChatCompletionContentPartTextParam,
-    ChatCompletionFunctionCallOptionParam,
-    ChatCompletionFunctionMessageParam,
-    ChatCompletionMessage,
-    ChatCompletionMessageParam,
-    ChatCompletionMessageToolCall,
-    ChatCompletionNamedToolChoiceParam,
-    ChatCompletionRole,
-    ChatCompletionStreamOptionsParam,
-    ChatCompletionSystemMessageParam,
-    ChatCompletionTokenLogprob,
-    ChatCompletionToolParam,
-    ChatCompletionToolChoiceOptionParam,
-    ChatCompletionToolMessageParam,
-    ChatCompletionUserMessageParam,
-)
 
 import os
-from openai import OpenAI
+from openai import OpenAI # pip install openai
+from keys import open_ai_api_key # you must enter your OpenAI API key in a file called keys.py
 
-client = openai.Client(api_key="secret")
+client = OpenAI(
+    api_key=open_ai_api_key
+)
 
-# Create a chat completion using the client
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
+completion = client.chat.completions.create(
+    model="gpt-4o-mini",
     messages=[
+        # This first message is prob not needed but can be useful in some cases, maybe you want the AI to act like a HCI researcher.
+        {"role": "system", "content": "You are a helpful assistant."},   
+
+        # this is the actual question
         {
             "role": "user",
-            "content": "Say this is a test"
+            "content": "Give me the ingredients and instructions for this URL: http://www.food.com/recipe/greek-quinoa-salad-with-avocados-469270 as a Python dictionary.",
         }
     ]
 )
 
-# Print the response from the assistant
-print(response['choices'][0]['message']['content'])
+result = completion.choices[0].message.content
+print(result)
