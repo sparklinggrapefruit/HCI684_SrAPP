@@ -1,0 +1,18 @@
+##API KEYS
+##I had some trouble working through the API key. 
+##I didn't realize that ChatGPT disables the code automatically when it's uploaded on Github.
+##It took a while for me to realize this because the import openAI code just wouldn't work!
+##So I uploaded the file in my cybox folder and been using that. I can't commit the changes on the Github desktop because of this
+##Glad it works now
+
+##File upload
+##Wrote code to upload txt file
+
+##Txt file convert to dictionaries
+##This took a WHILE as well. 
+##Extracted information needed from txt file and convert them to dictionaries on py file so that the data is stored internally
+##QUESTION: Not sure how to "streamline" this process without having the user "write" the code for this. Perhaps that would come later when I build the web-app?
+
+##Next things to do 
+##1. Ask GPT the read the abstract and rate the relevance to the research question given
+##2. Build GUI (hopefully...)
